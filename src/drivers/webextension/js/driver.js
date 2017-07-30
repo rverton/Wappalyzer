@@ -115,7 +115,8 @@ var callback = tabs => {
     if ( tab.url.match(/^https?:\/\//) ) {
       browser.tabs.executeScript(tab.id, {
         file: 'js/content.js'
-      });
+      })
+      .catch(error => wappalyzer.log(error, 'driver', 'error'));
     }
   })
 };
